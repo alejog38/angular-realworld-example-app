@@ -23,10 +23,14 @@ jobs:
           node-version: 18
       - name: Install dependencies
         run: npm ci
+      - name: Upload artifact generated
+        uses: actions/upload-artifact@v4
   Sonar:
     needs: Dependencies
     runs-on: ubuntu-latest
     steps:
+    - name: Download artifact generated
+      uses: actions/download-artifact@v4
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
@@ -54,14 +58,8 @@ jobs:
     needs: Security    
     runs-on: ubuntu-latest
     steps:
-      - name: Get Code
-        uses: actions/checkout@v3
-      - name: Install NodeJS
-        uses: actions/setup-node@v3
-        with:
-          node-version: 18
-      - name: Install dependencies
-        run: npm ci
+      - name: Download math result for job 1
+        uses: actions/download-artifact@v4
       - name: Build Project
         run: npm run build
       - name: Build Docker Container  
