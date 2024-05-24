@@ -27,7 +27,7 @@ jobs:
         run: npm run test
 
   Build:
-    needs: Test    
+    needs: Dependencies    
     runs-on: ubuntu-latest
     steps:
       - name: Build Project
