@@ -27,6 +27,8 @@ jobs:
           cache: 'npm'
       - name: Install dependencies
         run: npm ci
+      - name: Add lint eschematics
+        run: ng add @angular-eslint/schematics
       - name: Run ESLint
         run: npm run lint 
         
