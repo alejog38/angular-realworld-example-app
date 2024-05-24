@@ -61,7 +61,7 @@ jobs:
         with:
           command: monitor
   Build:
-    needs: Security    
+    needs: [Dependencies, Sonar, Security]    
     runs-on: ubuntu-latest
     steps:
       - name: Download math result for job 1
