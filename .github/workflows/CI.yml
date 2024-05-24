@@ -30,7 +30,7 @@ jobs:
       - name: Install Angular CLI
         run: npm i -g @angular/cli
       - name: Add lint schematics
-        run: ng add @angular-eslint/schematics
+        run: ng add @angular-eslint/schematics --skip-confirmation
       - name: Run ESLint
         run: npm run lint 
         
